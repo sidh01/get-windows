@@ -12,10 +12,10 @@ import {
 	openWindowsSync as openWindowsSyncWindows,
 } from './lib/windows.js';
 
-export async function activeWindow(options) {
+export async function activeWindow(options,isPackaged=null) {
 	if (process.platform === 'darwin') {
 		const {activeWindow} = await import('./lib/macos.js');
-		return activeWindow(options);
+		return activeWindow(options,isPackaged);
 	}
 
 	if (process.platform === 'linux') {
